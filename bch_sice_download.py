@@ -19,8 +19,11 @@ def login_SICE(username, password):
     username_field.send_keys(username)
     password_field.send_keys(password)
     submit_button.click()
-    return driver
 
+    response = driver.get('https://sisee.bch.hn/SICE/ConsultaSACAjustado.aspx')
+
+    return driver
+    
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -57,5 +60,3 @@ def downaload_SICE_query(driver, serie, year, month, country):
 
     download_button = driver.find_element(By.ID,'ContentPlaceHolder1_BtnDescargar')
     download_button.click()
-
-    driver.quit()
